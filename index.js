@@ -1,6 +1,6 @@
 import express from "express";
-import dotenv from "dotenv"
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -137,30 +137,38 @@ app.delete("/plant/:id", (req, res) => {
     }
   });
 
-  if(index == -1){
+  if (index == -1) {
     return res.json({
-        success: false,
-        message: `Plant not found with id ${id}`
-    })
+      success: false,
+      message: `Plant not found with id ${id}`,
+    });
   }
 
-  plants.splice(index, 1)
+  plants.splice(index, 1);
 
   res.json({
     success: true,
     message: `Plant deleted successfully`,
-    data: null
-  })
-
-
+    data: null,
+  });
 });
 
-app.use("*", (req, res)=>{
-
-    res.send(`<div>
-        <h1>404 Not found</h1>
-        </div>`)
-})
+app.use("*", (req, res) => {
+  res.send(`<div style="text-align: center; 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"> 
+        <h1> 404 </h1> 
+        <p> 
+            Oops! The page you're 
+            looking for is not here. 
+        </p> 
+        <a href="https://nursey-server.onrender.com/"> 
+            Go Back to Home 
+        </a> 
+    </div>  `);
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
