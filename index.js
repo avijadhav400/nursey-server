@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
+import cors from 'cors'
 
 import { getHealth } from "./controllers/health.js";
 import { deletePlant, getPlantId, getPlants, postPlant, putPlant } from "./controllers/plant.js";
@@ -9,6 +10,7 @@ import { handlePageNotFound } from "./controllers/errors.js";
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 const PORT = process.env.PORT || 5000
 
@@ -23,7 +25,7 @@ const dbConnection = async () => {
   }
 }
 dbConnection()
-// dbConnection()
+
 
 app.get("/health", getHealth)
 
