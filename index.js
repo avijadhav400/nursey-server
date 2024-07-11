@@ -23,6 +23,7 @@ const dbConnection = async () => {
   }
 }
 dbConnection()
+// dbConnection()
 
 app.get("/health", getHealth)
 
