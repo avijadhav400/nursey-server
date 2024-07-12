@@ -30,6 +30,10 @@ const postPlant = async (req, res) => {
 const getPlants = async (req, res) => {
   const allPlants = await Plant.find();
 
+  if(!allPlants){
+    console.log("Problem while getting all plants");
+  }
+
   res.json({
     success: true,
     data: allPlants,

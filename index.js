@@ -1,8 +1,8 @@
 import express from "express";
-import dotenv from "dotenv";
-dotenv.config();
 import mongoose from "mongoose";
 import cors from 'cors'
+import dotenv from 'dotenv'
+dotenv.config()
 
 import { getHealth } from "./controllers/health.js";
 import { deletePlant, getPlantId, getPlants, postPlant, putPlant } from "./controllers/plant.js";
@@ -15,8 +15,7 @@ app.use(cors())
 const PORT = process.env.PORT || 5000
 
 const dbConnection = async () => {
-  const conn = mongoose.connect(process.env.MONGODB_URL)
-
+ const conn = mongoose.connect(process.env.MONGO_URL)
   if(conn){
     console.log(`Mongodb connected 🚀`);
   }

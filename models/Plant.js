@@ -6,11 +6,6 @@ const plantSchema = new Schema({
     image: String,
     price: Number,
     description: String
-    // name: String,
-    // category: String,
-    // image: String,
-    // price: Number,
-    // description: String
 
 })
 
